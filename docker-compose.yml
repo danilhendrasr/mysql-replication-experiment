@@ -6,21 +6,30 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
-      MYSQL_USER: user1
-      MYSQL_PASSWORD: password1
     volumes:
       - ./configs/master.cnf:/etc/mysql/conf.d/master.cnf
+      - ./scripts/master.sql:/docker-entrypoint-initdb.d/master.sql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD || exit 1",
+        ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
     ports:
       - 3306:3306
 
   slave1:
     image: mysql:8.4.0
     restart: always
+    depends_on:
+      master:
+        condition: service_healthy
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: database2
-      MYSQL_USER: user2
-      MYSQL_PASSWORD: password2
+      MYSQL_DATABASE: database1
     volumes:
       - ./configs/slave1.cnf:/etc/mysql/conf.d/slave1.cnf
     ports:
