@@ -1,2 +1,4 @@
 [mysqld]
-server-id=1
+server-id               = 1
+mysql_native_password   = ON
+binlog_do_db            = database1
