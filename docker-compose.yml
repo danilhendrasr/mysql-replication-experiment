@@ -8,6 +8,8 @@ services:
       MYSQL_DATABASE: database1
       MYSQL_USER: user1
       MYSQL_PASSWORD: password1
+    volumes:
+      - ./configs/master.cnf:/etc/mysql/conf.d/master.cnf
     ports:
       - 3306:3306
 
@@ -19,5 +21,7 @@ services:
       MYSQL_DATABASE: database2
       MYSQL_USER: user2
       MYSQL_PASSWORD: password2
+    volumes:
+      - ./configs/slave1.cnf:/etc/mysql/conf.d/slave1.cnf
     ports:
       - 3307:3306
