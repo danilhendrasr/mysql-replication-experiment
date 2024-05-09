@@ -4,6 +4,15 @@ This setup consists of 1 master, 1 slave which replicates from master, and 1 mor
 which replicates from the other slave. Replications are done using the
 binlog position-based mode.
 
+```mermaid
+flowchart RL
+  master[(Master)]
+  slave1[(Slave 1)]
+  slave2[(Slave 2)]
+  slave1-->master
+  slave2-->slave1
+```
+
 ## How to Configure
 
 1. Scaffold the infrastructure
