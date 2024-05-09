@@ -4,24 +4,14 @@
    ```bash
    docker compose up -d
    ```
-2. Connect to `master` at `root:root_password@localhost:3306/database1`
-3. Get the binlog name and position by running:
+2. Connect to `slave1` at `root:root_password@localhost:3307/database1`
+3. Run:
    ```sql
-   SHOW BINARY LOG STATUS;
+   START REPLICA;
    ```
-4. Connect to `slave1` at `root:root_password@localhost:3307/database1`
-5. Connect to master with the following command:
+4. Check replication status:
    ```sql
-   CHANGE REPLICATION SOURCE TO
-       SOURCE_HOST='master',
-       SOURCE_USER='slave',
-       SOURCE_PASSWORD='password',
-       SOURCE_LOG_FILE='<binlog name>',
-       SOURCE_LOG_POS=<binlog position>;
-   ```
-6. Run:
-   ```sql
-   START REPLICA
+   SHOW REPLICA STATUS;
    ```
 
 # Testing
