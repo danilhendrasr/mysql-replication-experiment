@@ -42,3 +42,22 @@ VALUES
 In `slave1` and `slave2` inside the `database1` database should appear a new table named `testing`
 which has a single column named uid. If you inspect the data, there should be 3 entries
 coming from the above SQL command.
+
+Now try running the following SQL script on `slave1`:
+
+```sql
+CREATE TABLE database1.users (
+	uid INT NOT NULL,
+	full_name TEXT NOT NULL
+);
+
+INSERT INTO database1.users
+VALUES
+	(1, 'Verstappen'),
+	(2, 'Messi'),
+	(3, 'Khalid');
+```
+
+Now in `slave2`'s `database1` database should appear a new table named `users`
+which contains 3 records coming from the above query. The same phenomena won't
+occur on `master`.
