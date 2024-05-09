@@ -9,10 +9,11 @@ up to group replication.
 - [x] [Simple binlog-based replication](./simple-binlog)
 - [x] [Simple GTID-based replication](./simple-gtid)
 - [ ] Cascading binlog-based replication
-- [ ] Cascading GTID-based replication
+- [x] [Cascading GTID-based replication](./cascading-gtid)
 - [ ] Cascading mixed replication
 - [ ] Group replication
 
 > Note:
+>
 > If you want to try out the setup yourself, just go the corresponding directory and read the
 > readme, I've put a guide on how to setup and test each setup.
