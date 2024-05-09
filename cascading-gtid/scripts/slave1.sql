@@ -1,0 +1,8 @@
+CHANGE REPLICATION SOURCE TO SOURCE_HOST = 'master',
+SOURCE_USER = 'slave',
+SOURCE_PASSWORD = 'password',
+SOURCE_AUTO_POSITION = 1;
+
+CREATE USER 'slave2' @'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+GRANT REPLICATION SLAVE ON *.* TO 'slave2' @'%';

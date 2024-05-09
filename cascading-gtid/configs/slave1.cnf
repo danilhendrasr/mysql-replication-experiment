@@ -1,0 +1,5 @@
+[mysqld]
+server-id = 2
+mysql_native_password = ON
+gtid_mode = ON
+enforce-gtid-consistency = ON
