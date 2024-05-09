@@ -1,4 +1,9 @@
-# How to Configure
+# Simple binlog-based Replication
+
+This setup only consists of 1 master and 1 slave with replication done using the
+old binlog position-based mechanism.
+
+## How to Configure
 
 1. Scaffold the infrastructure
    ```bash
@@ -24,7 +29,7 @@
    START REPLICA
    ```
 
-# Testing
+## Testing
 
 Try running the following SQL script on `master`:
 
