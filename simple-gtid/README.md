@@ -4,7 +4,7 @@
    ```bash
    docker compose up -d
    ```
-2. Connect to `slave1` at `root:root_password@localhost:3307/database1`
+2. Connect to `slave` at `root:root_password@localhost:3307/database1`
 3. Run:
    ```sql
    START REPLICA;
@@ -30,6 +30,6 @@ VALUES
 	(3);
 ```
 
-In `slave1` inside the `database1` database should appear a new table named `testing`
+In `slave` inside the `database1` database should appear a new table named `testing`
 which has a single column named uid. If you inspect the data, there should be 3 entries
 coming from the above SQL command.

@@ -9,7 +9,7 @@
    ```sql
    SHOW BINARY LOG STATUS;
    ```
-4. Connect to `slave1` at `root:root_password@localhost:3307/database1`
+4. Connect to `slave` at `root:root_password@localhost:3307/database1`
 5. Connect to master with the following command:
    ```sql
    CHANGE REPLICATION SOURCE TO
@@ -40,6 +40,6 @@ VALUES
 	(3);
 ```
 
-In `slave1` inside the `database1` database should appear a new table named `testing`
+In `slave` inside the `database1` database should appear a new table named `testing`
 which has a single column named uid. If you inspect the data, there should be 3 entries
 coming from the above SQL command.
