@@ -3,6 +3,13 @@
 This setup only consists of 1 master and 1 slave with replication done using the
 old binlog position-based mechanism.
 
+```mermaid
+flowchart RL
+  master[(Master)]
+  slave[(Slave)]
+  slave-->master
+```
+
 ## How to Configure
 
 1. Scaffold the infrastructure
