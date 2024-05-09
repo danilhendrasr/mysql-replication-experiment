@@ -8,7 +8,7 @@ up to group replication.
 
 - [x] [Simple binlog-based replication](./simple-binlog)
 - [x] [Simple GTID-based replication](./simple-gtid)
-- [ ] Cascading binlog-based replication
+- [x] [Cascading binlog-based replication](./cascading-binlog)
 - [x] [Cascading GTID-based replication](./cascading-gtid)
 - [ ] Cascading mixed replication
 - [ ] Group replication
