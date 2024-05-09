@@ -1,4 +1,9 @@
-# How to Configure
+# Simple GTID-based Replication
+
+This setup only consists of 1 master and 1 slave with replication done using the
+newer GTID mode.
+
+## How to Configure
 
 1. Scaffold the infrastructure
    ```bash
@@ -14,7 +19,7 @@
    SHOW REPLICA STATUS;
    ```
 
-# Testing
+## Testing
 
 Try running the following SQL script on `master`:
 
