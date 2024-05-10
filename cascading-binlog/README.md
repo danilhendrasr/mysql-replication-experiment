@@ -1,4 +1,4 @@
-# Simple binlog-based Replication
+# Cascading binlog-based Replication
 
 This setup consists of 1 master, 1 slave which replicates from master, and 1 more slave
 which replicates from the other slave. Replications are done using the

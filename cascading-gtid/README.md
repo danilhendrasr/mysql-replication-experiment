@@ -1,4 +1,4 @@
-# Simple GTID-based Replication
+# Cascading GTID-based Replication
 
 This setup consists of 1 master and 1 slave which replicates from master and 1 slave
 which replicates from the other slave. Replications are done using the

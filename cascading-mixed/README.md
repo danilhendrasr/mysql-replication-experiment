@@ -1,4 +1,4 @@
-# Simple binlog-based Replication
+# Cascading Mixed Method Replication
 
 This setup consists of 1 master, 1 slave which replicates from master using the old
 binlog position-based method, and 1 more slave which replicates from the other slave
