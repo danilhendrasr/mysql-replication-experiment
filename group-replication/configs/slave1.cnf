@@ -1,0 +1,16 @@
+[mysqld]
+server_id = 2
+default_authentication_plugin = mysql_native_password
+binlog_do_db = database1
+gtid_mode = ON
+enforce_gtid_consistency = ON
+binlog_checksum = NONE
+
+plugin_load_add = group_replication.so
+loose_group_replication_group_name = aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+loose_group_replication_start_on_boot = OFF
+loose_group_replication_local_address = "slave1:6606"
+loose_group_replication_group_seeds = "master:6606,slave1:6606,slave2:6606"
+loose_group_replication_bootstrap_group = OFF
+loose_group_replication_single_primary_mode = ON
+loose_group_replication_enforce_update_everywhere_checks = OFF

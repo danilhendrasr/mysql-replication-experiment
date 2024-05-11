@@ -11,7 +11,8 @@ up to group replication.
 - [x] [Cascading binlog-based replication](./cascading-binlog)
 - [x] [Cascading GTID-based replication](./cascading-gtid)
 - [x] [Cascading mixed replication](./cascading-mixed)
-- [ ] Group replication
+- [x] [Group replication](./group-replication)
+- [ ] InnoDB cluster
 
 > Note:
 >
