@@ -2,6 +2,7 @@ version: "3"
 services:
   master:
     image: mysql/mysql-server:8.0
+    hostname: master
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
@@ -15,6 +16,7 @@ services:
 
   slave1:
     image: mysql/mysql-server:8.0
+    hostname: slave1
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
@@ -28,6 +30,7 @@ services:
 
   slave2:
     image: mysql/mysql-server:8.0
+    hostname: slave2
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
