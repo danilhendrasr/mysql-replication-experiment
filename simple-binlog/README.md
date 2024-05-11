@@ -4,10 +4,10 @@ This setup only consists of 1 master and 1 slave with replication done using the
 old binlog position-based mechanism.
 
 ```mermaid
-flowchart RL
+flowchart LR
   master[(Master)]
   slave[(Slave)]
-  slave-->master
+  master-->slave
 ```
 
 ## How to Configure

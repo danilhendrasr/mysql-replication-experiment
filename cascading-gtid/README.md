@@ -5,12 +5,12 @@ which replicates from the other slave. Replications are done using the
 GTID mode.
 
 ```mermaid
-flowchart RL
+flowchart LR
   master[(Master)]
   slave1[(Slave 1)]
   slave2[(Slave 2)]
-  slave1-->master
-  slave2-->slave1
+  master-->slave1
+  slave1-->slave2
 ```
 
 ## How to Configure

@@ -5,12 +5,12 @@ binlog position-based method, and 1 more slave which replicates from the other s
 using the newer GTID-based method.
 
 ```mermaid
-flowchart RL
+flowchart LR
   master[(Master)]
   slave1[(Slave 1)]
   slave2[(Slave 2)]
-  slave1-- binlog position-based -->master
-  slave2-- GTID-based -->slave1
+  master-- binlog position-based -->slave1
+  slave1-- GTID-based -->slave2
 ```
 
 ## How to Configure
