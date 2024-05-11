@@ -1,16 +1,15 @@
-# Cascading GTID-based Replication
+# Group Replication
 
-This setup consists of 1 master and 1 slave which replicates from master and 1 slave
-which replicates from the other slave. Replications are done using the
-GTID mode.
+This setup consists of 1 master and 2 slaves running on group replication mode.
+If the master dies, one of the slaves will be automatically elected as a new master.
 
 ```mermaid
-flowchart RL
+flowchart LR
   master[(Master)]
   slave1[(Slave 1)]
   slave2[(Slave 2)]
-  slave1-->master
-  slave2-->slave1
+  master-->slave1
+  master-->slave2
 ```
 
 ## How to Configure
@@ -20,11 +19,24 @@ flowchart RL
    docker compose up -d
    ```
 2. Connect to `master` at `root:root_password@localhost:3306/database1`
-3. Connect to `slave1` at `root:root_password@localhost:3307/database1`
-4. Connect to `slave2` at `root:root_password@localhost:3308/database1`
+3. Bootstrap the group replication:
+   ```sql
+   CALL set_as_master;
+   ```
+5. Connect to `slave1` at `root:root_password@localhost:3307/database1`
+6. Set it to join the replication group:
+   ```sql
+   CALL set_as_slave;
+   ```
+7. Connect to `slave2` at `root:root_password@localhost:3308/database1`
+8. Set it to join the replication group:
+   ```sql
+   CALL set_as_slave;
+   ```
 
 ## Testing
 
+### Replication Testing
 Try running the following SQL script on `master`:
 
 ```sql
@@ -43,21 +55,10 @@ In `slave1` and `slave2` inside the `database1` database should appear a new tab
 which has a single column named uid. If you inspect the data, there should be 3 entries
 coming from the above SQL command.
 
-Now try running the following SQL script on `slave1`:
-
+### Automatic Master Election Testing
+Try stopping the master container and then run the following query:
 ```sql
-CREATE TABLE database1.users (
-	uid INT NOT NULL,
-	full_name TEXT NOT NULL
-);
-
-INSERT INTO database1.users
-VALUES
-	(1, 'Verstappen'),
-	(2, 'Messi'),
-	(3, 'Khalid');
+SELECT * FROM performance_schema.replication_group_members;
 ```
 
-Now in `slave2`'s `database1` database should appear a new table named `users`
-which contains 3 records coming from the above query. The same phenomena won't
-occur on `master`.
+You should see that one of the slaves automatically gets promoted as a new master.
