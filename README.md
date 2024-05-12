@@ -1,10 +1,8 @@
 # MySQL Replication Experiments
 
-This repo contains a bunch of configs to scaffold a MySQL replication setup from simple
-binlog-based, simple GTID-based, to cascading binlog-based, and cascading GTID-based,
-up to group replication.
+This repo contains a bunch of examples on how to set up a MySQL replication setup.
 
-## Roadmap
+## Table of Contents
 
 - [x] [Simple binlog-based replication](./simple-binlog)
 - [x] [Simple GTID-based replication](./simple-gtid)
@@ -12,7 +10,7 @@ up to group replication.
 - [x] [Cascading GTID-based replication](./cascading-gtid)
 - [x] [Cascading mixed replication](./cascading-mixed)
 - [x] [Group replication](./group-replication)
-- [ ] InnoDB cluster
+- [ ] 🚧 InnoDB cluster
 
 > Note:
 >
