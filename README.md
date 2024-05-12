@@ -1,6 +1,6 @@
 # MySQL Replication Experiments
 
-This repo contains a bunch of examples on how to set up a MySQL replication setup.
+This repo contains a bunch of examples on how to set up a MySQL replication in several different replication configurations.
 
 ## Table of Contents
 
