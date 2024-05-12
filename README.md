@@ -3,6 +3,9 @@
 This repo contains a bunch of examples on how to set up a MySQL replication in different replication configurations. 
 Each setup uses docker compose for easy scaffolding and testing.
 
+To play around with it yourself, go to the directory of the setup you want to try out
+and check out at the readme. There should be a guide on how to scaffold and test each of them.
+
 ## Table of Contents
 
 - [x] [Simple binlog-based replication](./simple-binlog)
@@ -13,5 +16,4 @@ Each setup uses docker compose for easy scaffolding and testing.
 - [x] [Group replication](./group-replication)
 - [ ] 🚧 InnoDB cluster
 
-To play around with it yourself, go to the directory of the replication setup you want to test
-and check out at the readme. There should be a guide on how to scaffold and test each setup.
+
