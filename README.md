@@ -12,7 +12,5 @@ This repo contains a bunch of examples on how to set up a MySQL replication setu
 - [x] [Group replication](./group-replication)
 - [ ] 🚧 InnoDB cluster
 
-> Note:
->
-> If you want to try out the setup yourself, just go the corresponding directory and read the
-> readme, I've put a guide on how to setup and test each setup.
+To play around with it yourself, go to the directory of the replication setup you want to test
+and check out at the readme. There should be a guide on how to scaffold and test each setup.
