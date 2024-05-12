@@ -16,15 +16,8 @@ flowchart LR
    ```bash
    docker compose up -d
    ```
-2. Connect to `slave` at `root:root_password@localhost:3307/database1`
-3. Run:
-   ```sql
-   START REPLICA;
-   ```
-4. Check replication status:
-   ```sql
-   SHOW REPLICA STATUS;
-   ```
+2. Connect to `master` at `root:root_password@localhost:3306/database1`
+3. Connect to `master` at `root:root_password@localhost:3307/database1`
 
 ## Testing
 
