@@ -1,6 +1,7 @@
 # MySQL Replication Experiments
 
-This repo contains a bunch of examples on how to set up a MySQL replication in several different replication configurations.
+This repo contains a bunch of examples on how to set up a MySQL replication in different replication configurations. 
+Each setup uses docker compose for easy scaffolding and testing.
 
 ## Table of Contents
 
