@@ -1,43 +1,43 @@
 version: "3"
 services:
-  master:
+  primary:
     image: mysql/mysql-server:8.0
-    hostname: master
+    hostname: primary
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/master.cnf:/root/.my.cnf
-      - ./scripts/master.sql:/docker-entrypoint-initdb.d/master.sql
+      - ./configs/primary.cnf:/root/.my.cnf
+      - ./scripts/primary.sql:/docker-entrypoint-initdb.d/primary.sql
     ports:
       - 3306:3306
 
-  slave1:
+  secondary1:
     image: mysql/mysql-server:8.0
-    hostname: slave1
+    hostname: secondary1
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/slave1.cnf:/root/.my.cnf
-      - ./scripts/slave.sql:/docker-entrypoint-initdb.d/slave.sql
+      - ./configs/secondary1.cnf:/root/.my.cnf
+      - ./scripts/secondary.sql:/docker-entrypoint-initdb.d/secondary.sql
     ports:
       - 3307:3306
 
-  slave2:
+  secondary2:
     image: mysql/mysql-server:8.0
-    hostname: slave2
+    hostname: secondary2
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_PASSWORD: root_password
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/slave2.cnf:/root/.my.cnf
-      - ./scripts/slave.sql:/docker-entrypoint-initdb.d/slave.sql
+      - ./configs/secondary2.cnf:/root/.my.cnf
+      - ./scripts/secondary.sql:/docker-entrypoint-initdb.d/secondary.sql
     ports:
       - 3308:3306

@@ -7,7 +7,7 @@ BEGIN
     CREATE USER IF NOT EXISTS 'repl'@'%';
     GRANT REPLICATION SLAVE ON *.* TO repl@'%';
     FLUSH PRIVILEGES;
-    CHANGE REPLICATION SOURCE TO master_user='root' FOR CHANNEL 'group_replication_recovery';
+    CHANGE REPLICATION SOURCE TO master_user='repl' FOR CHANNEL 'group_replication_recovery';
     START GROUP_REPLICATION;
     -- SELECT * FROM performance_schema.replication_group_members;
 END $$
