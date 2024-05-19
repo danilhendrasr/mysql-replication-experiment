@@ -43,7 +43,7 @@ services:
     ports:
       - "3301:3306"
     volumes:
-      - ./configs/master.cnf:/root/.my.cnf
+      - ./configs/primary.cnf:/root/.my.cnf
 
   secondary1:
     image: mysql/mysql-server:8.0.12
@@ -56,7 +56,7 @@ services:
     ports:
       - "3302:3306"
     volumes:
-      - ./configs/slave1.cnf:/root/.my.cnf
+      - ./configs/secondary1.cnf:/root/.my.cnf
 
   secondary2:
     image: mysql/mysql-server:8.0.12
@@ -69,4 +69,4 @@ services:
     ports:
       - "3303:3306"
     volumes:
-      - ./configs/slave2.cnf:/root/.my.cnf
+      - ./configs/secondary2.cnf:/root/.my.cnf
