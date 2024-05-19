@@ -1,14 +1,14 @@
 version: "3"
 services:
-  master:
+  primary:
     image: mysql:8.4.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/master.cnf:/etc/mysql/conf.d/master.cnf
-      - ./scripts/master.sql:/docker-entrypoint-initdb.d/master.sql
+      - ./configs/primary.cnf:/etc/mysql/conf.d/primary.cnf
+      - ./scripts/primary.sql:/docker-entrypoint-initdb.d/primary.sql
     healthcheck:
       test:
         [
@@ -21,18 +21,18 @@ services:
     ports:
       - 3306:3306
 
-  slave1:
+  secondary1:
     image: mysql:8.4.0
     restart: always
     depends_on:
-      master:
+      primary:
         condition: service_healthy
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/slave1.cnf:/etc/mysql/conf.d/slave1.cnf
-      - ./scripts/slave1.sql:/docker-entrypoint-initdb.d/slave1.sql
+      - ./configs/secondary1.cnf:/etc/mysql/conf.d/secondary1.cnf
+      - ./scripts/secondary1.sql:/docker-entrypoint-initdb.d/secondary1.sql
     healthcheck:
       test:
         [
@@ -45,17 +45,17 @@ services:
     ports:
       - 3307:3306
 
-  slave2:
+  secondary2:
     image: mysql:8.4.0
     restart: always
     depends_on:
-      slave1:
+      secondary1:
         condition: service_healthy
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: database1
     volumes:
-      - ./configs/slave2.cnf:/etc/mysql/conf.d/slave2.cnf
-      - ./scripts/slave2.sql:/docker-entrypoint-initdb.d/slave2.sql
+      - ./configs/secondary2.cnf:/etc/mysql/conf.d/secondary2.cnf
+      - ./scripts/secondary2.sql:/docker-entrypoint-initdb.d/secondary2.sql
     ports:
       - 3308:3306

@@ -1,3 +1,3 @@
-CREATE USER 'slave' @'%' IDENTIFIED WITH mysql_native_password BY 'password';
+CREATE USER 'secondary1' @'%' IDENTIFIED WITH mysql_native_password BY 'password';
 
-GRANT REPLICATION SLAVE ON *.* TO 'slave' @'%';
+GRANT REPLICATION SLAVE ON *.* TO 'secondary1' @'%';
