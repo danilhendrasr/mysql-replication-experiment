@@ -1,6 +1,5 @@
 [mysqld]
-server-id = 2
+server_id = 2
 mysql_native_password = ON
-binlog_do_db = database1
 gtid_mode = ON
-enforce-gtid-consistency = ON
+enforce_gtid_consistency = ON
