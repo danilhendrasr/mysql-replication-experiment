@@ -1,7 +1,7 @@
 DROP PROCEDURE IF EXISTS set_as_master;
 
 DELIMITER $$
-CREATE PROCEDURE set_as_master ()
+CREATE PROCEDURE set_as_primary ()
 BEGIN
     SET @@GLOBAL.group_replication_bootstrap_group = ON;
     CREATE USER IF NOT EXISTS 'repl'@'%';
